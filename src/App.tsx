@@ -1,7 +1,16 @@
-import ListGroup  from "./components/ListGroup.tsx";
+import Button from "./components/Button.tsx";
+import Alert from "./components/Alert.tsx";
+import {useState} from "react";
 
 function App() {
-    return <div><ListGroup /></div>;
+    const [alertVisible, setAlertVisibility] = useState(false);
+
+    return (
+        <div>
+            {alertVisible && <Alert onClose={() => setAlertVisibility(false)}>My Alert</Alert>}
+            <Button color='primary' onClick={() => setAlertVisibility(true)}>My Button</Button>
+        </div>
+    );
 }
 
 export default App;
